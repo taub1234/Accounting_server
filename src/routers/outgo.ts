@@ -10,14 +10,14 @@ outgo_router.post('/insert', express.json(), requiredBodyDataArguments(['amount'
         try {
             const { amount, provider, path_receipt } = req.body
             const outgo: any = new Outgo(amount, provider, path_receipt)
-            const token = outgo.add()
+            const token = await outgo.add()
             if (token) {
                 res.locals['response'] = 200
-                res.status(200).end()
+                res.status(200).send('the outgo inserted successfully').end()
             }
             else {
                 res.locals['response'] = 403
-                res.status(403).send('not login')
+                res.status(403).send('not insert')
             }
         }
         catch (error: any) {
