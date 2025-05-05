@@ -5,7 +5,6 @@ let client:MongoClient
 
 export const openConnection=async (url:string)=>{
     console.log("connection");
-    
     client= new MongoClient (url)
     await client.connect()
 }

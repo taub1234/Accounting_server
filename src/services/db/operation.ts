@@ -9,7 +9,6 @@ import { getClient } from "./connection";
     constructor(dbName:string, collectionName:string){
         this.dbName=dbName;
         this.collectionName=collectionName
-        
     }
 
     public set DBName(value:string){
@@ -42,8 +41,9 @@ import { getClient } from "./connection";
 
     public async getItem({filter= {}, project= {}}){
         const response= await this.MyCollection.findOne(filter)
+        console.log(response);
+        
         return response
-
     }
 
     public async getItems({ filter = {} } = {}){
