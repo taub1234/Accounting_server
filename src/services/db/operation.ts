@@ -34,27 +34,22 @@ import { getClient } from "./connection";
 
      public async addItem(item: any){
         const response= await this.MyCollection.insertOne(item)
-        console.log(response);
-        console.log(item);
         return response.acknowledged
     }
 
     public async getItem({filter= {}, project= {}}){
         const response= await this.MyCollection.findOne(filter)
-        console.log(response);
         
         return response
     }
 
     public async getItems({ filter = {} } = {}){
         const response = await this.MyCollection.find(filter).toArray()
-        console.log(response);
         return response
     }
 
     public async updateItem({ filter = {}, update = {} }) {
         const response = await this.MyCollection.updateOne(filter, update)
-        console.log({ response });
         return response
         }
 }
