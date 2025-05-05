@@ -6,7 +6,7 @@ const {JWT_SECRET='NCIOAUNVFHS1045V6GRTVUIOhnyufi154?!'}= process.env
 
 
 
- export async function  login(username:string, password:string){
+ export async function login(username:string, password:string){
   
     const connection = new MongoOperations("Accounting", "users" )
     const user:any =await connection.getItem({filter:{username:username}}) 
