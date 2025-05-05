@@ -1,4 +1,5 @@
-const { getClient } = require("./connection");
+
+import { getClient } from "./connection";
 
  export class MongoOperations{
 
