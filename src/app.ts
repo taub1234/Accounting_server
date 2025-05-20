@@ -4,6 +4,7 @@ import cors from 'cors'
 import {user_router} from './routers/user'
 import {config } from 'dotenv'
 import { outgo_router } from './routers/outgo'
+import { income_router } from './routers/income'
 config()
 
 
@@ -15,6 +16,7 @@ app.use(cors())
 app.use('/user', user_router)
 
 app.use('/outgo', outgo_router)
+app.use('/income', income_router)
 
 app.get('/', (req:Request, res:Response, next)=>{
     res.status(200).send('hello')
